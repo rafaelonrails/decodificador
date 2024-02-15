@@ -12,18 +12,18 @@
     </header>
     <main class="container">
         <section class="container__principal">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Digite o seu texto"></textarea>
+            <textarea type="text" id="textoUsuario" cols="30" rows="10" placeholder="Digite o seu texto"></textarea>
             <div class="container__principal__btn">
-                <button type="submit" id="btn__criptografar">Criptografar</button>
-                <button type="submit" id="btn__descriptografar">Descriptografar</button>
+                <button type="submit" class="btn__criptografar" onclick="criptografar()">Criptografar</button>
+                <button type="submit" class="btn__descriptografar" onclick="descriptografar()">Descriptografar</button>
             </div>
         </section>
-        <aside class="container__resultados">
+        <aside class="container__resultados__null">
             <img src="./assets/pessoa-lupa.png" alt="Icone de uma pessoa com uma lupa olhando um diamante">
             <h2>Nenhuma mensagem encontrada</h2>
             <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
         </aside>
     </main>
-    <footer></footer>
+    <script src="script.js"></script>
 </body>
 </html>

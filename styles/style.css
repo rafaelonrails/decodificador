@@ -50,7 +50,7 @@ header {
     border-radius: 24px;
 }
 
-#btn__criptografar {
+.btn__criptografar {
     background-color: #0A3871;
     margin-right: 24px;
     color: white;
@@ -58,22 +58,22 @@ header {
     cursor: pointer;
 }
 
-#btn__descriptografar {
+.btn__descriptografar {
     background-color: #D8DFE8;
     border: 1px solid #0A3871;
     color: #0A3871;
     cursor: pointer;
 }
 
-#btn__criptografar:hover {
+.btn__criptografar:hover {
     background-color: #072B61;
 }
 
-#btn__descriptografar:hover {
+.btn__descriptografar:hover {
     background-color: #EFF1FA;
 }
 
-.container__resultados {
+.container__resultados__null {
     background-color: white;
     width: 400px;
     height: 700px;
@@ -85,14 +85,29 @@ header {
     border-radius: 32px;
 }
 
-.container__resultados img {
+.container__resultados__null img {
     width: 70%;
 }
 
-.container__resultados h2 {
+.container__resultados__null h2 {
     font-size: 20px;
 }
 
-.container__resultados p {
+.container__resultados__null p {
     font-size: 16px;
+}
+
+.container__resultado__novo {
+    text-align: start;
+    font-size: 24px;
+    color: #495057;
+    justify-content: space-between;
+    padding: 32px;
+}
+
+.btnCopiar {
+    width: 328px;
+    padding: 24px;
+    font-size: 16px;
+    border-radius: 24px;
 }
