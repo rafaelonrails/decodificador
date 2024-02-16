@@ -1,63 +1,52 @@
-function alteraAside(textoCriptografado) {
-    let resultados = document.querySelector('aside');
-
-    resultados.classList.add('container__resultado__novo');
-    resultados.innerHTML = textoCriptografado +'<button type="submit" onclick="navigator.clipboard.writeText(textoCriptografado)" class="btn__descriptografar btnCopiar">Copiar</button>'    
+function alteraPalavra(texto, palavraOriginal, palavraTrocada) { 
+    if (texto.includes(palavraOriginal)) {
+        texto = texto.replaceAll(palavraOriginal, palavraTrocada);
+    }
+    return texto;
 }
 
-navigator.clipboard.writeText()
+function limparCampo() {
+    let campo = document.querySelector('textarea');
+    campo.value = '';
+}
 
 function criptografar() {
     let texto = document.querySelector('textarea').value;
-    textoCriptografado = texto;
-    
-    if (texto.includes('e')) {
-        textoCriptografado = textoCriptografado.replaceAll('e', 'enter');
-    }
-    if (texto.includes('i')) {
-        textoCriptografado = textoCriptografado.replaceAll('i', 'imes');
-    }
-    if (texto.includes('a')) {
-        textoCriptografado = textoCriptografado.replaceAll('a', 'ai');
-    }
-    if (texto.includes('o')) {
-        textoCriptografado = textoCriptografado.replaceAll('o', 'ober');
-    }
-    if (texto.includes('u')) {
-        textoCriptografado = textoCriptografado.replaceAll('u', 'ufat');
-    }
-    
-    
+    let textoCriptografado = texto;
+
+    textoCriptografado = alteraPalavra(textoCriptografado, 'e', 'enter');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'i', 'imes');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'a', 'ai');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'o', 'ober');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'u', 'ufat');
+
     alteraAside(textoCriptografado);
+    limparCampo();
 }
 
 function descriptografar() {
     let texto = document.querySelector('textarea').value;
-    textoCriptografado = texto;
+    let textoCriptografado = texto;
 
-    if (texto.includes('enter')) {
-        textoCriptografado = textoCriptografado.replaceAll('enter', 'e');
-    }
-    if (texto.includes('imes')) {
-        textoCriptografado = textoCriptografado.replaceAll('imes', 'i');
-    }
-    if (texto.includes('ai')) {
-        textoCriptografado = textoCriptografado.replaceAll('ai', 'a');
-    }
-    if (texto.includes('ober')) {
-        textoCriptografado = textoCriptografado.replaceAll('ober', 'o');
-    }
-    if (texto.includes('ufat')) {
-        textoCriptografado = textoCriptografado.replaceAll('ufat', 'u');
-    }
-
+    textoCriptografado = alteraPalavra(textoCriptografado, 'enter', 'e');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'imes', 'i');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'ai', 'a');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'ober', 'o');
+    textoCriptografado = alteraPalavra(textoCriptografado, 'ufat', 'u');
     alteraAside(textoCriptografado);
+    limparCampo();
+}
 
+function alteraAside(textoCopia) {
+    let texto = textoCopia;
+    console.log(texto)
+    let resultados = document.querySelector('aside');
+
+    resultados.classList.add('container__resultado__novo');
+    resultados.innerHTML ='<p id="textoResultado">'+texto+'</p>' + '<button type="submit" id="btnCopiar" onclick="copiar()" class="btn__descriptografar ">Copiar</button>'  
 }
 
 function copiar() {
-    
-    
+    let texto = document.getElementById('textoResultado').innerHTML;
+    navigator.clipboard.writeText(texto);
 }
-
-
