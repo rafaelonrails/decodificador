@@ -39,9 +39,9 @@ function descriptografar() {
 
 function alteraAside(textoCopia) {
     let texto = textoCopia;
-    console.log(texto)
+    texto = texto.replace(/(.{45})/g, '$1 ');
     let resultados = document.querySelector('aside');
-
+    
     resultados.classList.add('container__resultado__novo');
     resultados.innerHTML ='<p id="textoResultado">'+texto+'</p>' + '<button type="submit" id="btnCopiar" onclick="copiar()" class="btn__descriptografar ">Copiar</button>'  
 }
